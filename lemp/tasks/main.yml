@@ -1,0 +1,12 @@
+---
+- name: "Installing LEMP Stack"
+  apt:
+    name: "{{ pkg_list }}"
+    state: present
+
+- name: "Ensure LEMP Services is running"
+  service:
+    name: "{{ item }}"
+    state: started
+    enabled: true
+  with_items: "{{ svc_list }}"

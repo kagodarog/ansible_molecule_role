@@ -1,0 +1,10 @@
+---
+pkg_list:
+  - nginx
+  - mariadb-server
+  - php-fpm
+  - php-cli
+svc_list:
+  - nginx
+  - mariadb
+  - php8.1-fpm

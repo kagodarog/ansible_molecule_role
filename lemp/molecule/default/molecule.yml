@@ -1,0 +1,17 @@
+---
+dependency:
+  enabled: true
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: instance
+    image: mipguerrero26/ubuntu-python3
+    privileged: true
+    pre_build_image: true
+provisioner:
+  name: ansible
+verifier:
+  #name: ansible
+  name: testinfra
+  directory: tests

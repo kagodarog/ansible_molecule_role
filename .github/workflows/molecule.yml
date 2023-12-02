@@ -1,6 +1,10 @@
 ---
     name: Molecule Test CI
     on: [push, pull_request]
+    defaults:
+        run:
+            working-directory: lemp
+            
     jobs:
       build:
         runs-on: ubuntu-latest
@@ -11,7 +15,7 @@
     
         steps:
           - uses: actions/checkout@v3
-          
+
           - name: Set up Python ${{ matrix.python-version }}
             uses: actions/setup-python@v3
             with:
@@ -21,7 +25,7 @@
               python3 -m pip install --upgrade pip
               python3 -m pip install pytest-testinfra molecule 'molecule-plugins[docker]' yamllint ansible-lint
           - name: Test with molecule
-            run: |
+            run: 
               molecule test
             env:
                 PY_COLORS: 1

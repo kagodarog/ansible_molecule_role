@@ -12,6 +12,7 @@
           max-parallel: 4
           matrix:
             python-version: ["3.9", "3.10"]
+            distro: ["ubuntu", centos]
     
         steps:
           - uses: actions/checkout@v3
